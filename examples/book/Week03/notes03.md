@@ -48,3 +48,7 @@ Generate random numbers as int or float within a fixed inclusive range.
               // (3) randomly choose duration from 30 to 1000 ms
     Math.random2f(30,1000) :: ms => now;
 ```
+
+
+square brackets = array
+round brackets = function
