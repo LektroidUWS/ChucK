@@ -24,7 +24,7 @@ TriOsc t => dac;                    //  TriOsc fixed at center for harmony
 (beats_per_second*2) :: second => dur k;
 [ h, q, q, h, q, q, h, q, q, h, q, q, h, q, q, h, h, h, h, k, q, q, q, q, h, q, q, i, q, h, q, q, h, q, q, h, h, h, h, h ] @=> dur myDurs[];
 
-// make one more array to hold the words
+// make one more array to hold the message
 [" "," T"," E"," T"," R"," I"," S"," ", // Text (string) array
 " T", " H","E","M","E"," ","T","U","N","E"," "," "," ","B","Y"," ","R","I","C","H","A","R","D"," ","E","L","L","I","O","T","T"," "] @=> string words[];
 
