@@ -11,6 +11,7 @@ TriOsc t => dac;                    //  TriOsc fixed at center for harmony
 0.0 => float offGain;
 
 // declare and initialize our arrays of MIDI note #s
+<<<<<<< HEAD
 [76, 71, 72, 74, 72, 71, 69,               // Melody (int) MIDI note array
 69, 72, 76, 74, 72, 71, 71, 72, 74, 76, 72, 69, 69, 24, 74, 74, 77, 81, 79, 77, 76, 72, 76, 74, 72, 71, 71, 72, 74, 76, 72, 69, 69 ] @=> int melNotes[];
 [59, 52, 59, 64, 52, 59, 45,               // Harmony (int) MIDI note array
@@ -18,6 +19,8 @@ TriOsc t => dac;                    //  TriOsc fixed at center for harmony
 
 // note Duration (dur) array
 60.0/170.0 => float beats_per_second;
+=======
+
 (beats_per_second/2) :: second => dur q;
 (beats_per_second) :: second => dur h;
 (beats_per_second*1.5) :: second => dur i;
@@ -53,7 +56,11 @@ for(0 => int j; j < 4; j++ ){
 
         // space between notes is 30% of array duration
         offGain => s.gain => t.gain;
+<<<<<<< HEAD
         0.1*myDurs[i] => now;                // 10% of array duration is off time
+=======
+        0.1*myDurs[i] => now;                // (14) 10% of array duration is off time
+>>>>>>> Branch1
 
         // add rest at end of loop
         if ( i == melNotes.cap()-1) {
