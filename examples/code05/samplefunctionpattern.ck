@@ -20,12 +20,33 @@
 
 
 // load the files and route to samples gain element
-"../audio/" => string samplepath;
-["clap_01.wav"] @=> string samplefiles[];
-samplefiles << "click_01.wav";
-samplefiles << "click_02.wav";
-samplefiles << "cowbell_01.wav";
-samplefiles << "hihat_01.wav";
+"../Amen/" => string samplepath;
+["AmenMain_L+R.WAV"] @=> string samplefiles[];
+samplefiles << "crash01.wav";
+samplefiles << "crashLong.WAV";
+samplefiles << "dbKick01.WAV";
+samplefiles << "dbKick02.WAV";
+samplefiles << "dbKick03.WAV";
+samplefiles << "hat01.WAV";
+samplefiles << "hat02.WAV";
+samplefiles << "hat03.WAV";
+samplefiles << "kick02.WAV";
+samplefiles << "kick03.WAV";
+samplefiles << "kick04.WAV";
+samplefiles << "shuff01.WAV";
+samplefiles << "shuff02.WAV";
+samplefiles << "shuff03.WAV";
+samplefiles << "shuff04.WAV";
+samplefiles << "shuff05.WAV";
+samplefiles << "smallSnare01.WAV";
+samplefiles << "snare01.WAV";
+samplefiles << "snare02.WAV";
+samplefiles << "snare03.WAV";
+samplefiles << "snare04.WAV";
+samplefiles << "snare05.WAV";
+samplefiles << "snare06.WAV";
+samplefiles << "snare07.WAV";
+samplefiles << "snare08.WAV";
 SndBuf buffers[samplefiles.cap()];
 
 0 => int buf;
@@ -59,6 +80,7 @@ function void loadSamples (string path, string filenames[], SndBuf sounds[], Gai
 function void playPattern (int myBufs[], int myDurs[]  ,float myVelocities[]){
     for (0 =>int index; index < myBufs.cap(); index ++){ //for each element of the array
         0 => buffers[myBufs[index]].pos;
+        0.5 => buffers[myBufs[index]].rate;
         myVelocities[index]   * 0.2    => buffers[myBufs[index]].gain;
         myDurs[index] * tick :: second => now;
     }
