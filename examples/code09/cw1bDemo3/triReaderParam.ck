@@ -31,17 +31,17 @@ Sound3 snd3 => master;
 0.0 =>snd3.noteOff;
 
 if(me.args()){
-    "mdv/"+ me.arg(0)+".txt" => filename;
+    "mdv/"+ me.arg(0)+"1.txt" => filename;
 }   
 retrieve(Notes1, Durs1, Velocities1);
 
 if(me.args()){
-    "mdv/"+ me.arg(0)+".txt" => filename;
+    "mdv/"+ me.arg(0)+"2.txt" => filename;
 }   
 retrieve(Notes2, Durs2, Velocities2);
 
 if(me.args()){
-    "mdv/"+ me.arg(0)+".txt" => filename;
+    "mdv/"+ me.arg(0)+"3.txt" => filename;
 }   
 retrieve(Notes3, Durs3, Velocities3);
 

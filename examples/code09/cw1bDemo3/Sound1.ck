@@ -12,9 +12,12 @@ public class Sound1 extends Chubgraph
    0.1 => float release;
    3.0 => float rmax;
    
-
-   SinOsc s => ADSR env => outlet;
+   
+   SinOsc s => ADSR env => JCRev reverb => outlet;
    0.5 => s.gain;
+   0.5 => reverb.mix;
+
+
 
    env.set(attack :: second, decay :: second, sustain, release :: second);
    <<<env.state()>>>; // print env state 0 atack 1 decay 2 sustain 3 release 4 done
@@ -45,7 +48,10 @@ public class Sound1 extends Chubgraph
            env.sustainLevel(sustain); }
         if(sliderNo == 3){ 
            rmax * value/127    => release; 
-           env.releaseTime(release :: second); }                                      
+           env.releaseTime(release :: second); }         
+      if(sliderNo == 4){ 
+            value/127    => reverb.mix; 
+           }                                      
    } 
    
 }
