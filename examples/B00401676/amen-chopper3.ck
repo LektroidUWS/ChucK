@@ -7,12 +7,20 @@ SndBuf buf => dac;
 filename => buf.read;
 
 // how many samples are in a 16th (slice) of the buffer
-buf.samples()/32 => int sliceSize;
+buf.samples()/16 => int sliceSize;
+
+// sample playback rate 1 = normal, 2 = double speed...
+1.5 => float rate;
+// rateScale is used to scale wait times
+1/rate => float rateScale;
 
 // play buffer from start
 0 => buf.pos;
+// set buffer playback rate
+rate => buf.rate;
 // wait until buffer has fully played
-buf.samples()::samp => now;
+buf.samples()*rateScale::samp => now;
+
 
 // infinite loop
 while( true )
@@ -23,5 +31,5 @@ while( true )
     sliceSize * Math.random2(0, 15) => buf.pos;
 
     // wait for a slice amount of samples to pass and then loop
-    sliceSize::samp => now;
+    sliceSize*rateScale::samp => now;
 }
