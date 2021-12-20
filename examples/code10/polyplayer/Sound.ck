@@ -19,7 +19,7 @@ public class Sound extends Chubgraph
     0.1 => float smin;
     1.0 => float smax;
     0.1 => float rmin;
-    2.0 => float rmax;
+    3.0 => float rmax;
     
     // min-max values for mamp
     0.0 => float modampgainmin;

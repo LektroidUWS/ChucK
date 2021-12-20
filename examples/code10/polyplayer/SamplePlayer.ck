@@ -4,9 +4,9 @@ public class SamplePlayer extends Chubgraph
  
     // setup and play 16 samples with control from controllers 21 - 28
  
-    ["clap_01","click_01","click_02","cowbell_01","hihat_01","hihat_02",
-     "hihat_04","kick_01","kick_04","snare_01","snare_02","snare_03",
-     "stereo_fx_01","stereo_fx_03","stereo_fx_01","stereo_fx_03"] @=>string fileNames [];
+    ["BD1","Blip1","Blip2","Blip3","BlipA","BlipB",
+     "BlipC","BlipD","LongTom(D)","SD1","SD2","SD3",
+     "SD4","TomLow(C)","TomMid(G)","stereo_fx_03"] @=>string fileNames [];
 
     Gain percGain => outlet;
     0.8 => percGain.gain;
@@ -15,7 +15,7 @@ public class SamplePlayer extends Chubgraph
     int    sampleLengths[16];
 
     for (0 => int i; i< fileNames.cap(); i ++){
-         me.sourceDir() + "/audio/" + fileNames[i] + ".wav" => buffers[i].read;   
+         me.sourceDir() + "/Pro-1/" + fileNames[i] + ".aif" => buffers[i].read;   
          buffers[i].rate(1);
          buffers[i].samples() => sampleLengths[i];
          buffers[i].pos(sampleLengths[i]-1);
