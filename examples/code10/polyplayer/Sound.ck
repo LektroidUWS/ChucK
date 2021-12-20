@@ -13,7 +13,7 @@ public class Sound extends Chubgraph
    
    // min max values for ADSR
     0.005 => float amin;
-    2.0 => float amax;
+    3.0 => float amax;
     0.02 => float dmin;
     1.0 => float dmax;
     0.1 => float smin;
