@@ -26,7 +26,6 @@ int chan;
 0 => int port;  // edit this to your iac, keyboard or loopBE port number
 9999 => int oscLocalPort;
 
-
 PolyVoices pv => dac;
 SamplePlayer sp => dac;
 MidiHandler mh;
