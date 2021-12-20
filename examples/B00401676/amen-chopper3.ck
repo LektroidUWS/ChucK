@@ -10,7 +10,7 @@ filename => buf.read;
 buf.samples()/16 => int sliceSize;
 
 // sample playback rate 1 = normal, 2 = double speed...
-1.3 => float rate;
+1.2=> float rate;
 // rateScale is used to scale wait times
 1/rate => float rateScale;
 
