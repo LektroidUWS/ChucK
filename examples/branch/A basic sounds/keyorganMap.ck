@@ -27,7 +27,7 @@ int midiNote;
 ] @=> int map[];
 
 // which keyboard
-0 => int device;
+1 => int device;
 // get from command line
 if( me.args() ) me.arg(0) => Std.atoi => device;
 
