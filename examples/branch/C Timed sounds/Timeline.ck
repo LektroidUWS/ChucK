@@ -6,11 +6,11 @@
 120 => float tempo;
 
 60/(tempo * 192) => float tick;
-384 * tick :: second => dur minim;
-288 * tick :: second => dur crotchetD;
-192 * tick :: second => dur crotchet;
-96  * tick :: second => dur quaver;
-48  * tick :: second => dur semiquaver;
+384 * tick :: second => dur half;
+288 * tick :: second => dur quarterDot;
+192 * tick :: second => dur quarter;
+96  * tick :: second => dur eighth;
+48  * tick :: second => dur sixteenth;
 
 20 * tick :: second  => dur gap;
 
@@ -47,43 +47,43 @@ Sample smp => sum;
 0.0 => smp.noteOff;
 
 // Timed Midi Notes
-    Std.mtof(mi)  => snd.setFreq;  f =>   snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now;
-    Std.mtof(mi)  => snd.setFreq;  mf =>  snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now;
-    Std.mtof(fah) => snd.setFreq;  mf =>  snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(soh) => snd.setFreq;  mf =>  snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now;
-    Std.mtof(soh) => snd.setFreq;  f =>   snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(fah) => snd.setFreq;  mf =>  snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now;
-    Std.mtof(mi)  => snd.setFreq;  mf =>  snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(re)  => snd.setFreq;  mf =>  snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(doh) => snd.setFreq;  f =>   snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(doh) => snd.setFreq;  p =>   snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(re)  => snd.setFreq;  f =>   snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now;
-    Std.mtof(mi)  => snd.setFreq;  p =>   snd.noteOn;      crotchet  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(mi)  => snd.setFreq;  f =>   snd.noteOn;      crotchetD - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(re)  => snd.setFreq;  f =>   snd.noteOn;      quaver    - gap   => now; 0.0 => snd.noteOff; gap   => now; 
-    Std.mtof(re)  => snd.setFreq;  f =>   snd.noteOn;      minim     - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(mi)  => snd.setFreq;  f =>   snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now;
+    Std.mtof(mi)  => snd.setFreq;  mf =>  snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now;
+    Std.mtof(fah) => snd.setFreq;  mf =>  snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(soh) => snd.setFreq;  mf =>  snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now;
+    Std.mtof(soh) => snd.setFreq;  f =>   snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(fah) => snd.setFreq;  mf =>  snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now;
+    Std.mtof(mi)  => snd.setFreq;  mf =>  snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(re)  => snd.setFreq;  mf =>  snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(doh) => snd.setFreq;  f =>   snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(doh) => snd.setFreq;  p =>   snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(re)  => snd.setFreq;  f =>   snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now;
+    Std.mtof(mi)  => snd.setFreq;  p =>   snd.noteOn;      quarter  - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(mi)  => snd.setFreq;  f =>   snd.noteOn;      quarterDot - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(re)  => snd.setFreq;  f =>   snd.noteOn;      eighth    - gap   => now; 0.0 => snd.noteOff; gap   => now; 
+    Std.mtof(re)  => snd.setFreq;  f =>   snd.noteOn;      half     - gap   => now; 0.0 => snd.noteOff; gap   => now; 
 
 //Timed Samples
-    smi  => smp.setFreq;  f =>   smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    smi  => smp.setFreq;  mf =>  smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    smi  => smp.setFreq;  p =>   smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    smi  => smp.setFreq;  p =>   smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    smi  => smp.setFreq;  p =>   smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    sfah => smp.setFreq;  mf =>  smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    ssoh => smp.setFreq;  mf =>  smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    ssoh => smp.setFreq;  f =>   smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    sfah => smp.setFreq;  mf =>  smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    smi  => smp.setFreq;  mf =>  smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    sre  => smp.setFreq;  mf =>  smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    sdoh => smp.setFreq;  f =>   smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    sdoh => smp.setFreq;  p =>   smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    sdoh  => smp.setFreq; p =>   smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    sdoh  => smp.setFreq; p =>   smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    sdoh  => smp.setFreq; p =>   smp.noteOn;      semiquaver - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    smi  => smp.setFreq;  f =>   smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    smi  => smp.setFreq;  mf =>  smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    smi  => smp.setFreq;  p =>   smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    smi  => smp.setFreq;  p =>   smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    smi  => smp.setFreq;  p =>   smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    sfah => smp.setFreq;  mf =>  smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    ssoh => smp.setFreq;  mf =>  smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    ssoh => smp.setFreq;  f =>   smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sfah => smp.setFreq;  mf =>  smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    smi  => smp.setFreq;  mf =>  smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sre  => smp.setFreq;  mf =>  smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sdoh => smp.setFreq;  f =>   smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sdoh => smp.setFreq;  p =>   smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sdoh  => smp.setFreq; p =>   smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    sdoh  => smp.setFreq; p =>   smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    sdoh  => smp.setFreq; p =>   smp.noteOn;      sixteenth - gap   => now; 0.0 => smp.noteOff; gap   => now;
 
 
-    sre  => smp.setFreq;  f =>   smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now;
-    smi  => smp.setFreq;  p =>   smp.noteOn;      crotchet   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    smi  => smp.setFreq;  f =>   smp.noteOn;      crotchetD  - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    sre  => smp.setFreq;  f =>   smp.noteOn;      quaver     - gap   => now; 0.0 => smp.noteOff; gap   => now; 
-    sre  => smp.setFreq;  f =>   smp.noteOn;      minim      - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sre  => smp.setFreq;  f =>   smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now;
+    smi  => smp.setFreq;  p =>   smp.noteOn;      quarter   - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    smi  => smp.setFreq;  f =>   smp.noteOn;      quarterDot  - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sre  => smp.setFreq;  f =>   smp.noteOn;      eighth     - gap   => now; 0.0 => smp.noteOff; gap   => now; 
+    sre  => smp.setFreq;  f =>   smp.noteOn;      half      - gap   => now; 0.0 => smp.noteOff; gap   => now; 

@@ -1,5 +1,5 @@
 //ode to joy using two sporked players with different voices
-// chuck odedemo2.ck
+// chuck Tetris2.ck
 
 140 => float tempo;
 
@@ -9,6 +9,8 @@
 
 // Midi notes   57 59 61 62 64 66 68 69
 // note name    A  B  C# D  E  F# G# A
+
+
 
 
 [ 76,  71,  72,  74,  72,  71,  69,  69,  72,  76,  74,  72,  71,  71,  72,  74,  76,  72,  69,  69,  24,  74,  74,  77,  81, 79, 77, 76, 72, 76, 74, 72, 71, 71, 72, 74, 76, 72, 69, 69 ] @=> int melNotes[];

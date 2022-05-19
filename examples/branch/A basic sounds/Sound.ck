@@ -36,7 +36,7 @@ public class Sound extends Chubgraph
    0.3 => g.gain;
    
    function void noteOn(float vel ){
-      env.time(Math.random2f(0.01, 0.5));
+      env.time(Math.random2f(0.01, 0.1));
       env.keyOn();
    }
    
