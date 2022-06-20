@@ -7,7 +7,7 @@ HidMsg msg;
 int midiNote;
 0.4 => float keyGain;
 
-
+/*
 // PC keyboard map
 [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
  -1,-1,-1,-1,-1,-1,-1, 1, 3,-1,
@@ -15,8 +15,8 @@ int midiNote;
   0, 2 ,4, 5, 7, 9,11,12,14,16,
  17,-1,-1,-1,-1,-1,-1,-1,-1,-1 
 ] @=> int map[];
+*/
 
-/*
 // MAC keyboard map
 [-1,-1,-1,-1, 0,-1,-1, 4, 3, 5,
   7, 9,-1,11,12,14,-1, 1,13,15,
@@ -25,10 +25,10 @@ int midiNote;
  -1,-1,-1,-1,-1,-1,-1,-1,18,-1,
  -1,16,17,-1,-1,-1,-1,-1,-1,-1
 ] @=> int map[];
-*/
+
 
 // which keyboard
-0 => int device;
+1 => int device;
 // get from command line
 if( me.args() ) me.arg(0) => Std.atoi => device;
 

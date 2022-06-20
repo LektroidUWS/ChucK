@@ -1,5 +1,5 @@
 //ode to joy using single sound in separate class file
-//Now reading note arrays from an mdv file
+//Now reading note arrays form a file
 //chuck Sound.ck mdvPlayer.ck
 
 120 => float tempo;
@@ -9,7 +9,6 @@
 int melNotes[0];
 int myDurs[0];
 float myVelocities[0];
-10 => int gap;
 
 
 
@@ -17,13 +16,13 @@ float myVelocities[0];
 Sound snd => dac;
 0.0 =>snd.noteOff;
 
-"mdv/OdeToJoy1.txt" => string filename;
+"mdv/Piano-Piano.txt" => string filename;
 retrieve(melNotes, myDurs, myVelocities);
 
 
 Event start;
 
-spork ~ player(melNotes, myDurs, myVelocities, start, gap);
+spork ~ player(melNotes, myDurs, myVelocities, start);
 1.0 * second => now;
 start.broadcast();
 
@@ -53,17 +52,16 @@ function void retrieve(int notes[], int durations[], float velocities[] ){
 
 //---------------------- voice playing functions --------------//
 
-function void player(int N[], int D[], float V[], Event start, int gap){
+function void player(int N[], int D[], float V[], Event start){
     while( true){
         //0 => s.gain ;
         start => now;
         for (1 => int i; i <= 4; i++) {// four repeats
-            for (1 =>int index; index < N.cap(); index ++){ //for each non zero element of the array
-                Std.mtof(N[index])  => snd.setFreq;
+            for (0 =>int index; index < N.cap(); index ++){ //for each element of the array
+                Std.mtof(N[index])      => snd.setFreq;
                 V[index]   * 0.2    => snd.noteOn;
-                (D[index]-gap)* tick :: second => now;
+                D[index] * tick :: second => now;
                 0.0 => snd.noteOff;
-                gap * tick :: second => now;
             }
         }
     }
