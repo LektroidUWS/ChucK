@@ -58,7 +58,7 @@ K:G
 
 MDV is not an official standard format, it is just an ordered list of numbers in a format I have designed to make the music easily readable to chuck.
 
-I have provided a library code file abcConverter.ck which will read the abc file from the abc folder and produce an mdv file of a similar name in the mdv folder.
+I have provided a library code file abcConverter.ck which will read the abc file from the abc folder and produce an mdv file of a similar name in the mdv folder.  You can scan down the code, but you do not need to study the detail here.
 
 ```c
 //abc converter v 1.2
@@ -629,11 +629,54 @@ function void readNoteData(){
 
 ```
 
-Try changing the filenames to 
-
-
-Then run the converter.
+There is a demo ABC file in the abc folder OdeToJoy1.txt  to convert this to MDV run the converter replacing the name with the sample file name (without the .txt extension)
 
 > chuck abcconverter.ck:OdeToJoy1
 
-A file of numbers should appear in the mdv folder ready to be played. 
+The following output will appear in the terminal as the abc file is read and the melodyu will play back on a default sound to confirm the conversion.
+
+```code
+PS C:\Users\derek\Documents\Github\Chuck-21\code17\G Convert music to MDV> chuck abcconverter.ck:OdeToJoy1
+N array 0 
+found X: 1 
+found title: Title 
+found composer: Composer 
+found unit note length: 1 / 4 
+found Meter: 4 / 4 
+found instruction: linebreak $ 
+found key: C 
+data:  e 101 
+data:    32 
+data:  e 101 
+data:    32
+data:  f 102
+data:    32
+data:  g 103
+```
+
+A file with a similar name should appear in the mdv folder **OdeToJoy.txt*** and this contains numbers which we will see being played back in the next section.
+
+```code
+64
+0
+76
+76
+77
+79
+79
+77
+76
+74
+72
+72
+74
+76
+76
+74
+74
+76
+76
+77
+79
+79 ...
+```
