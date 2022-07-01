@@ -1,4 +1,4 @@
-public class Sound2 extends Chubgraph
+public class Sound extends Chubgraph
 {
 // preset starting values
    0.001 => float attack; // time in seconds
@@ -46,16 +46,19 @@ public class Sound2 extends Chubgraph
       Hz => sqr.freq;
    }
 
+   //name control elements of sound
+   ["attack", "decay", "sustain", "release"] @=> string controls[];
+
 // value to set ADSR
-  function void oscSlider(int sliderNo, float value)
+  function void soundControl(int sliderNo, float value)
   { 
-   if(sliderNo == 4){attackMin + (attackMax-attackMin)*value/127 => attack;
+   if(sliderNo == 0){attackMin + (attackMax-attackMin)*value/127 => attack;
     env.attackTime(attack::second);}
-   if(sliderNo == 5){decayMin + (decayMax-decayMin)*value/127 => decay;
+   if(sliderNo == 1){decayMin + (decayMax-decayMin)*value/127 => decay;
    env.decayTime(decay::second);}
-   if(sliderNo == 6){sustainMin + (sustainMax-attackMin)*value/127 => sustain;
+   if(sliderNo == 2){sustainMin + (sustainMax-attackMin)*value/127 => sustain;
     env.sustainLevel(sustain);}
-   if(sliderNo == 7){releaseMin + (releaseMax-releaseMin)*value/127 => release;
+   if(sliderNo == 3){releaseMin + (releaseMax-releaseMin)*value/127 => release;
    env.releaseTime(release::second);}
 }
 }
