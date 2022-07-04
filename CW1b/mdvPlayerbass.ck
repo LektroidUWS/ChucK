@@ -1,4 +1,3 @@
-//ode to joy using single sound in separate class file
 //Now reading note arrays form a file
 //chuck Sound1.ck Sound2.ck OscMonitorSplit.ck mdvPlayermelody.ck mdvPlayerbass.ck
 
@@ -10,8 +9,6 @@ int melNotes[0];
 int myDurs[0];
 float myVelocities[0];
 
-
-
 // sound patch read from an external class file Sound,ck
 Sound1 snd1 => dac;
 Sound2 snd => dac;
@@ -19,7 +16,6 @@ Sound2 snd => dac;
 
 "mdv/bass.txt" => string filename;
 retrieve(melNotes, myDurs, myVelocities);
-
 
 Event start;
 
